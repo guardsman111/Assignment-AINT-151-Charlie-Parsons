@@ -4,9 +4,10 @@ var roomArray = [
 		text:'You are standing room 1',
 		monster:'0',
 		monsterType:'0',
+		doors:1,
 		choices:[
 			{
-				text:'Go to room 2',
+				text:'Go through door 1',
 				index:1
 			}
 		]
@@ -16,15 +17,8 @@ var roomArray = [
 		text:'You are standing room 2',
 		monster:'',
 		monsterType:'',
+		doors:0,
 		choices:[
-			{
-				text:'Go to room 1',
-				index:0
-			},
-			{
-				text:'Go to room 3',
-				index:2
-			}
 		]
 	},
 	{
@@ -32,23 +26,17 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		doors:0,
 		choices:[
-			{
-				text:'Go to room 2',
-				index:1
-			}
 		]
 	},
 	{
-		title:'Room 3',
+		title:'Room 4',
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		doors:0,
 		choices:[
-			{
-				text:'Go to room 2',
-				index:1
-			}
 		]
 	}
     //background image placeholder link https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/videoblocks-cartoon-stone-wall-background_rdzejwsnez_thumbnail-full01.png
