@@ -16,35 +16,59 @@ function Generator()
 	{
 		var number1 = Math.floor(Math.random() * roomLayouts.length); // Random Number Generator
 		var number2 = Math.floor(Math.random() * roomFiller.length); // Random Number Generator
-		var number3 = Math.floor(Math.random() * monsterType.length); // Random Number Generator
-		var number4 = Math.floor(Math.random() * monsterFiller.length); // Random Number Generator
+		var number3 = Math.floor(Math.random() * monsterType1.length); // Random Number Generator
+		var number4 = Math.floor(Math.random() * monsterType2.length); // Random Number Generator
+		var number5 = Math.floor(Math.random() * monsterFiller.length); // Random Number Generator
 		if (i == 0)
 		{
 			roomArray[i].title = "Start Room";
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 		}
-		else if (i <= 3)
+		else if (i == 1)
 		{
 			roomArray[i].title = "Room";
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
-			roomArray[i].monsterType = monsterType[number3]; // Random Monster part 2
-			roomArray[i].monsterText = "There is a " + roomArray[i].monsterType + monsterFiller[number4]; // Monster Filler
-			if (i == 2)
-			{
-				roomArray[i].doors = Math.floor(Math.random() * (3 - 2 + 1)+ 2);
-			}
-			else
-			{
-				roomArray[i].doors = Math.floor(Math.random() * (2 - 1 + 1)+ 1);
-			}
+			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
+			roomArray[i].monsterText = "There is a " + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
+			roomArray[i].doors = Math.floor(Math.random() * (3 - 2 + 1)+ 2);
 			for(var j = 0; j <= roomArray[i].doors; j ++)
 			{
 				if (j == 0)
 				{
-					//roomArray[i].choices{text: "Go through door" + (j + 1) , index: j});
+					roomArray[i].choices.push({text: "Go back where you came from.", index: j}); // Room 1
 				}
-				roomArray[i].choices.push({text: "Go through door" + (j + 1) , index: j});
+				else
+				{
+				roomArray[i].choices.push({text: "Go through door " + (j + 1) + ".", index: j+1}); // Rooms 2-4
+				}
+			}
+		}
+		else if (i <= 4)
+		{
+			roomArray[i].title = "Room" + i;
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
+			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
+			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
+			roomArray[i].monsterText = "There is a " + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
+			roomArray[i].doors = 2;
+			for(var j = 1; j <= roomArray[i].doors; j ++)
+			{
+				if (j == 1)
+				{
+					roomArray[i].choices.push({text: "Go back where you came from.", index: 1});
+				}
+				else
+				{
+					if (i != 4)
+					{
+						roomArray[i].choices.push({text: "Go through door " + (j + 1) + ". ", index: i + 3}); // Room 5-6
+					}
+					else
+					{
+						roomArray[i].choices.push({text: "Go through door " + (j + 1) + ". ", index: i + 4}); // Room 8
+					}
+				}
 			}
 		}
 	}

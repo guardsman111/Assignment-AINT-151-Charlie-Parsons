@@ -1,6 +1,6 @@
 var roomArray = [
 	{
-		title:'Room 1',
+		title:'Room 0',
 		text:'You are standing room 1',
 		monster:'0',
 		monsterType:'0',
@@ -13,8 +13,17 @@ var roomArray = [
 		]
 	},
 	{
-		title:'Room 2',
+		title:'Room 1',
 		text:'You are standing room 2',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 2',
+		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
 		doors:0,
@@ -38,6 +47,96 @@ var roomArray = [
 		doors:0,
 		choices:[
 		]
+	},
+	{
+		title:'Room 5',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 6',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 7',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 8',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 9',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 10',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 11',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 12',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 13',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
+	},
+	{
+		title:'Room 14',
+		text:'You are standing room 3',
+		monster:'',
+		monsterType:'',
+		doors:0,
+		choices:[
+		]
 	}
     //background image placeholder link https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/videoblocks-cartoon-stone-wall-background_rdzejwsnez_thumbnail-full01.png
 ]
@@ -50,4 +149,6 @@ var roomFiller = [", with several regal banners hanging off the walls.", ", whic
 
 var monsterFiller = [" stood looking at you, slightly confused.", " wondering around the room, searching for something.", " scratching between its buttocks, unaware it is no longer alone.", " sleeping in the corner."]
 
-var monsterType = ["Goblin", "Daemon", "Manticore", "Dragon", "Guard"]
+var monsterType1 = ["Goblin", "Guard", "Orc", "Giant Spider"]
+
+var monsterType2 = ["Orc Warboss", "Daemon", "Manticore", "Dragon", "Owlbear"]
