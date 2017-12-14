@@ -71,6 +71,8 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monster2:'',
+		monster2Type:'',
 		doors:0,
 		choices:[
 		]
@@ -80,6 +82,8 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monster2:'',
+		monster2Type:'',
 		doors:0,
 		choices:[
 		]
@@ -89,6 +93,8 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monster2:'',
+		monster2Type:'',
 		doors:0,
 		choices:[
 		]
@@ -144,7 +150,7 @@ var roomArray = [
 var roomLayouts = ["You are in a small brick room", "You are in a small tiled room", "You are in a small room with a tall ceiling", "You are in a medium sized room with brick walls", "You are in a medium tiled room",
 "You are in a large sized room with brick walls", "You are in a large sized room with tiled walls", "You are in a long but narrow room", "You are in a wide room"];
 
-var roomFiller = [", with several regal banners hanging off the walls.", ", which is poorley lit.", ". There is a large table in the middle of the room.", ". A window is set in the wall to the left.", ". A window is set in the wall to the right.",
+var roomFiller = [", with several regal banners hanging off the walls.", ", which is poorly lit.", ". There is a large table in the middle of the room.", ". A window is set in the wall to the left.", ". A window is set in the wall to the right.",
 ". Several of the floor tiles have fallen away, revealing a deep abyss below you.", ", and several startled rats run away from you."]
 
 var monsterFiller = [" stood looking at you, slightly confused.", " wondering around the room, searching for something.", " scratching between its buttocks, unaware it is no longer alone.", " sleeping in the corner."]
