@@ -11,9 +11,9 @@ body {
 }
 
 h3 {
-    font-size:24px;
-    height: 30px;
-    width: 350px;
+    font-size:26px;
+    height: 60px;
+    width: 500px;
     display:block;
     background-color:rgba(200,200,200,0.5);
     margin-left:auto;
@@ -21,7 +21,7 @@ h3 {
 }
 
 p {
-    font-size:24px;
+    font-size:20px;
     height:400px;
     width: 500px;
     display:block;
@@ -33,7 +33,7 @@ p {
 button {
     border-color:#422800;
     background-color:#FFB74D;
-    font-size:14px;
+    font-size:36px;
     font-weight:bold;
 }
 
@@ -41,12 +41,7 @@ button:hover {
     background-color:#B58237;
 }
 
-#roomTitle {
+.bold {
     font-size:28px;
     font-family:'Stencil Std';
-}
-
-#roomText {
-    font-size:24px;
-    font-family:'OCR A Std';
 }

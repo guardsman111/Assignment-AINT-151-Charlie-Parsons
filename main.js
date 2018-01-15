@@ -2,7 +2,7 @@ function OnLoad()
 {
 	Generator();
 	document.getElementById('roomTitle').innerText = roomArray[0].title;
-	document.getElementById('roomText').innerText = roomArray[0].text;
+	document.getElementById('roomText').innerHTML = roomArray[0].text;
 	for (var i = 0; i < roomArray[0].choices.length; i++)
 	{
 		var choiceAdd = "<button type='button' onClick='SelectRoom(" + roomArray[0].choices[i].index + ")'>" + roomArray[0].choices[i].text + "</option>";
@@ -12,7 +12,7 @@ function OnLoad()
 
 function Generator()
 {
-	for (var i = 0; i < 15; i++)
+	for (var i = 0; i <= 17; i++)
 	{
 		var number1 = Math.floor(Math.random() * roomLayouts.length); // Random Number Generator
 		var number2 = Math.floor(Math.random() * roomFiller.length); // Random Number Generator
@@ -23,7 +23,7 @@ function Generator()
 		if (i == 0) // generates start room
 		{
 			roomArray[i].title = "Start Room";
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
+			roomArray[i].text = "You stand in front of a large wooden door, the entrance to the dungeon of Death. Inside you may find wealth, fame, danger or death. <br/><br/>Your goal is to reach the chamber of Salomon, and claim the Goblet of Life."; // Random Filler Text
 		}
 
 
@@ -159,13 +159,13 @@ function Generator()
 		else if (i <= 12) // generates room 10-12
 		{
 			roomArray[i].title = "Room " + i;
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + "The room seems to be a dead end."; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + " The room seems to be a dead end."; // Random Filler Text
 			roomArray[i].choices.push({text: "Go back where you came from", index: i - 3});
 			if (ending == 0)
 			{
 				if (i == 10)
 				{
-					roomArray[i].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Zeus. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
+					roomArray[i].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Salomon. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
 					roomArray[i].choices.push({text: "Continue on to your destiny", index: 15});
 				}
 			}
@@ -173,7 +173,7 @@ function Generator()
 			{
 				if (i == 12)
 				{
-					roomArray[i].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Zeus. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
+					roomArray[i].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Salomon. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
 					roomArray[i].choices.push({text: "Continue on to your destiny", index: 15});
 				}
 			}
@@ -183,12 +183,12 @@ function Generator()
 				{
 					if (roomArray[1].doors == 3)
 					{
-						roomArray[i].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Zeus. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
+						roomArray[i].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Salomon. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
 						roomArray[i].choices.push({text: "Continue on to your destiny", index: 15});
 					}
 					else
 					{
-						roomArray[i - 1].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Zeus. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
+						roomArray[i - 1].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Salomon. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
 						roomArray[i].choices.push({text: "Continue on to your destiny", index: 15});
 					}
 				}
@@ -231,11 +231,11 @@ function Generator()
 		}
 
 
-		else if (i <= 15) // creates end room
+		else if (i == 15) // creates end room
 		{
 				roomArray[i].title = "End Screen";
-				roomArray[i].text = "End Screen";
-				roomArray[i].choices.push({text: "Start over (Refresh the page for  new random seed)", index: 0});
+				roomArray[i].text = "Stats <br/><br/>Enemies Vanquished: <br/><br/>Rooms Visited: <br/><br/>Loot Collected: ";
+				roomArray[i].choices.push({text: "Start over (Refresh the page for  new random seed)", index: 16});
 		}
 	}
 }
@@ -244,12 +244,16 @@ function SelectRoom(roomIndex)
 {
 	var index = roomIndex;
 	document.getElementById('roomTitle').innerText = roomArray[index].title;
-	document.getElementById('roomText').innerText = roomArray[index].text;
+	document.getElementById('roomText').innerHTML = roomArray[index].text;
 	document.getElementById('roomChoices').innerHTML = '';
 	for (var i = 0; i < roomArray[index].choices.length; i++)
 	{
 		var choiceAdd = "<button type='button' onClick='SelectRoom(" + roomArray[index].choices[i].index + ")'>" + roomArray[index].choices[i].text + "</option>";
 		document.getElementById('roomChoices').innerHTML += choiceAdd;
+	}
+	if (index == 16)
+	{
+		location.reload(true)
 	}
 	if (roomArray[index].monster == 2)
 	{
@@ -259,4 +263,9 @@ function SelectRoom(roomIndex)
 			document.getElementById('roomText').innerHTML += "</br> </br>" + roomArray[index].monster2Text;
 		}
 	}
+}
+
+function goToGame()
+{
+	window.location.href = ('index.html')
 }

@@ -156,6 +156,13 @@ var roomArray = [
 		doors:0,
 		choices:[
 		]
+	},
+	{
+		title:'Room 16',
+		text:'',
+		doors:0,
+		choices:[
+		]
 	}
     //background image placeholder link https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/videoblocks-cartoon-stone-wall-background_rdzejwsnez_thumbnail-full01.png
 ]
