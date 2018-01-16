@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Randomest Dungeon</title>
+<script src="data.js"></script>
+<script src="main.js"></script>
+<script src="customization.js"></script>
+<link rel="stylesheet" href="StyleSheet.css" />
+</head>
+
+<body>
+<div id="menu"><button type='button' onClick='goToHome()'>Home!</option><button type='button' onClick='goToGame()'>Go To Game!</option><button type='button' onClick='goToAbout()'>Go To About!</option></div>
+
+<p id="Customization">Choose your items. You may take up to 4 items.</br>
+</br>Plate Armour: Strong layered plate armour that absorbs damage. Can take 2 damage before being destroyed.
+</br></br>Shield: A sturdy shield that can be used to block any incoming attacks. Can take 1 damage before being destroyed.
+</br></br>Sword: A strong iron sword, adept at killing lesser beings. Kills Goblins and Guards. Unlimited uses.
+</br></br>Axe: A rugged battle axe, with a hefty swing. Kills Orcs and Giant Spiders. Unlimited uses.
+</br></br>Possessed Dagger: A dagger infused with the spirit of a daemon. Kills Daemons and Manticores. 1 use.
+</br></br>Draconic Spear: A spear made from the bone and teeth of a dragon, infused with magical power. Kills Dragons. 1 use.
+</br></br>Rune Axe: An ancient dwarven axe infused with magical power by ancient runes. Kills Orc War bosses and Owlbears. 1 use.
+</br></br>Potion of Healing: A magical potion of unknown origin, sold to you by an old mage. Revives the player when they die. When used, room is cleared automatically. 1 use.
+</br></br>Your Equipment -</p>
+
+
+<div id="playerCustom">
+  <button type='button' id="plate" onClick='plate()'>Plate Armour</option>
+  <button type='button' id="shield" onClick='shield()'>Shield</option>
+  <button type='button' id="sword" onClick='sword()'>Sword</option>
+  <button type='button' id="axe" onClick='axe()'>Axe</option>
+  <button type='button' id="dagger" onClick='dagger()'>Possessed Dagger</option>
+  <button type='button' id="spear" onClick='spear()'>Draconic Spear</option>
+  <button type='button' id="runeAxe" onClick='runeAxe()'>Rune Axe</option>
+  <button type='button' id="potion" onClick='potion()'>Potion of Healing</option>
+</div>
+
+
+
+</body>
+</html>

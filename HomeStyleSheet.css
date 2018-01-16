@@ -13,7 +13,7 @@ body {
 h3 {
     font-size:26px;
     height: 60px;
-    width: 500px;
+    width: 450px;
     display:block;
     background-color:rgba(200,200,200,0.5);
     margin-left:auto;
@@ -44,4 +44,30 @@ button:hover {
 .bold {
     font-size:28px;
     font-family:'Stencil Std';
+}
+
+#about{
+    height:500px;
+    width: 800px;
+}
+
+#me1{
+  border:2px solid black;
+  position:fixed;
+  left:200px;
+  top:-40px;
+}
+
+#me2{
+  border:2px solid black;
+  position:fixed;
+  left:1400px;
+  top:200px;
+}
+
+#me3{
+  border:2px solid black;
+  position:fixed;
+  left:140px;
+  top:400px;
 }

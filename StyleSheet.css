@@ -50,3 +50,20 @@ button:hover {
     font-size:24px;
     font-family:'OCR A Std';
 }
+
+#menu button{
+    font-size:36px;
+}
+
+#guide{
+  position:absolute;
+  left: 300px;
+  top: 0px;
+}
+
+#Customization{
+  font-size:20px;
+  font-family:'OCR A Std';
+  height: 600px;
+  width: 900px
+}

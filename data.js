@@ -164,27 +164,33 @@ var roomArray = [
 		choices:[
 		]
 	}
-    //background image placeholder link https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/videoblocks-cartoon-stone-wall-background_rdzejwsnez_thumbnail-full01.png
 ]
 
 var PlayerStats = [
 	{
 		Name:'',
-		Weapon1:'',
-		Weapon2:'',
-		Weapon3:'',
+		Weapon:[
+		],
 		Loot1:'',
 		Loot2:'',
-		EnemiesBeaten:'',
-		Health:'',
+		EnemiesBeaten:0,
+		Health:1,
+	},
+	{
+
 	}
 ]
+
+var previousRoom = 0;
 
 var roomLayouts = ["You are in a small brick room", "You are in a small tiled room", "You are in a small room with a tall ceiling", "You are in a medium sized room with brick walls", "You are in a medium tiled room",
 "You are in a large sized room with brick walls", "You are in a large sized room with tiled walls", "You are in a long but narrow room", "You are in a wide room"];
 
 var roomFiller = [", with several regal banners hanging off the walls.", ", which is poorly lit.", ". There is a large table in the middle of the room.", ". A window is set in the wall to the left.", ". A window is set in the wall to the right.",
 ". Several of the floor tiles have fallen away, revealing a deep abyss below you.", ", and several startled rats run away from you."]
+
+var titleFiller = ["Brick room", "Tiled room", "Small room", "Room with brick walls", "Tiled room",
+"Large room with brick walls", "Large room with tiled walls", "Long corridor", "Wide room"];
 
 var monsterFiller = [" stood looking at you, slightly confused.", " wondering around the room, searching for something.", " scratching between its buttocks, unaware it is no longer alone.", " sleeping in the corner."]
 

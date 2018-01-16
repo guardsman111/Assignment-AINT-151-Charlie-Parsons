@@ -1,13 +1,7 @@
 function OnLoad()
 {
 	Generator();
-	document.getElementById('roomTitle').innerText = roomArray[0].title;
-	document.getElementById('roomText').innerHTML = roomArray[0].text;
-	for (var i = 0; i < roomArray[0].choices.length; i++)
-	{
-		var choiceAdd = "<button type='button' onClick='SelectRoom(" + roomArray[0].choices[i].index + ")'>" + roomArray[0].choices[i].text + "</option>";
-		document.getElementById('roomChoices').innerHTML = choiceAdd;
-	}
+	SelectRoom(0);
 }
 
 function Generator()
@@ -29,7 +23,7 @@ function Generator()
 
 		else if (i == 1) // generates room 1
 		{
-			roomArray[i].title = "Room " + i;
+			roomArray[i].title = titleFiller[number1];
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
@@ -39,7 +33,7 @@ function Generator()
 			{
 				if (j == 0)
 				{
-					roomArray[i].choices.push({text: "Go back where you came from", index: j}); // Room 0
+					roomArray[i].choices.push({text: "Go back where you came from (Start Room)", index: 0}); // Room 0
 				}
 				else
 				{
@@ -51,12 +45,12 @@ function Generator()
 
 		else if (i <= 4) // generates room 2-4
 		{
-			roomArray[i].title = "Room " + i;
+			roomArray[i].title = titleFiller[number1];
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
-			roomArray[i].doors = 2;
+			roomArray[i].doors = 2
 			for(var j = 1; j <= roomArray[i].doors; j ++)
 			{
 				if (j == 1)
@@ -80,7 +74,7 @@ function Generator()
 
 		else if (i <= 6) // generates room 5-6
 		{
-			roomArray[i].title = "Room " + i;
+			roomArray[i].title = titleFiller[number1];
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
@@ -118,7 +112,7 @@ function Generator()
 
 		else if (i <= 9) // generates room 7-9
 		{
-			roomArray[i].title = "Room " + i;
+			roomArray[i].title = titleFiller[number1];
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random chance of Monster
 			if (roomArray[i].monster == 1)
@@ -158,7 +152,7 @@ function Generator()
 
 		else if (i <= 12) // generates room 10-12
 		{
-			roomArray[i].title = "Room " + i;
+			roomArray[i].title = titleFiller[number1];
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + " The room seems to be a dead end."; // Random Filler Text
 			roomArray[i].choices.push({text: "Go back where you came from", index: i - 3});
 			if (ending == 0)
@@ -198,7 +192,8 @@ function Generator()
 
 		else if (i <= 14) // generates loot rooms 1-2
 		{
-			roomArray[i].title = "Loot Room " + i - 12;
+			roomArray[i].title = titleFiller[number1];
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = 2 // Definite Monster
 			roomArray[i].monster2 = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random chance of Monster 2
 			roomArray[i].monsterType = monsterType2[number4]; // Random Monster part 2
@@ -227,7 +222,7 @@ function Generator()
 			{
 				roomArray[i].choices.push({text: "Go back where you came from", index: 6});
 			}
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + " In the corner there is " + roomArray[i].loot; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + " In the corner there is " + roomArray[i].loot + "."; // Random Filler Text
 		}
 
 
@@ -242,7 +237,8 @@ function Generator()
 
 function SelectRoom(roomIndex)
 {
-	var index = roomIndex;
+	var index;
+	index = roomIndex;
 	document.getElementById('roomTitle').innerText = roomArray[index].title;
 	document.getElementById('roomText').innerHTML = roomArray[index].text;
 	document.getElementById('roomChoices').innerHTML = '';
@@ -253,7 +249,7 @@ function SelectRoom(roomIndex)
 	}
 	if (index == 16)
 	{
-		location.reload(true)
+		location.reload(true);
 	}
 	if (roomArray[index].monster == 2)
 	{
@@ -263,9 +259,22 @@ function SelectRoom(roomIndex)
 			document.getElementById('roomText').innerHTML += "</br> </br>" + roomArray[index].monster2Text;
 		}
 	}
+	var imagesrc = "'Guide\Map Guide' + index + '.png'";
+	document.getElementById('guide').src = imagesrc;
+	previousRoom = index
+}
+
+function goToHome()
+{
+	window.location.href = ('Home.html')
 }
 
 function goToGame()
 {
-	window.location.href = ('index.html')
+	window.location.href = ('game.html')
+}
+
+function goToAbout()
+{
+	window.location.href = ('About.html')
 }
