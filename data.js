@@ -194,6 +194,7 @@ var PlayerStats = [
 		Loot2:'',
 		EnemiesBeaten:0,
 		Health:1,
+		Potion:0,
 	},
 	{
 
@@ -215,10 +216,10 @@ var monsterType1 = [" Goblin", " Guard", "n Orc", " Giant Spider"]
 
 var monsterType2 = ["n Orc Warboss", " Daemon", " Manticore", " Dragon", "n Owlbear"]
 
-var lootpoor = ["a rusty old sword", "10 gold pieces that look like they might be fake", "a collection of rocks with faces drawn on them"]
+var lootpoor = ["is a rusty old sword", "are 10 gold pieces that look like they might be fake", "is a collection of rocks with faces drawn on them"]
 
-var lootmid = ["a finely crafted axe", "100 gold pieces", "a glittering Gemstone"]
+var lootmid = ["is a finely crafted axe", "are 100 gold pieces", "is a glittering Gemstone"]
 
-var lootgood = ["an ancient sword instilled with ancient magical power", "a chest full to the brim with 1000 gold pieces", "a Diamond"]
+var lootgood = ["is an ancient sword instilled with ancient magical power", "is a chest full to the brim with 1000 gold pieces", "is a Diamond"]
 
 var ending = Math.floor(Math.random() * (2 - 0 + 1)+ 0); //aids in deciding which end room will complete the adventure

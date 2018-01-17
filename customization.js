@@ -75,7 +75,7 @@ function potion()
 	var element = document.getElementById('potion');
 	element.disabled = true;
 	document.getElementById('Customization').innerHTML += " Potion of Healing";
-	PlayerStats[0].Weapon.push({Id: 5});
+	PlayerStats[0].Potion = 1;
 	kitTaken = kitTaken + 1;
 	kitFull();
 }
