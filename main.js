@@ -266,7 +266,7 @@ function SelectRoom(roomIndex)
 
 function goToHome()
 {
-	window.location.href = ('index.html')
+	window.location.href = ('Home.html')
 }
 
 function goToGame()

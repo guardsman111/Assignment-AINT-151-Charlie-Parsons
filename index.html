@@ -2,19 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Home Page</title>
+<title>The Randomest Dungeon</title>
 <script src="data.js"></script>
 <script src="main.js"></script>
-<link rel="stylesheet" href="HomeStyleSheet.css" />
+<link rel="stylesheet" href="StyleSheet.css" />
 </head>
 
-<body>
-
+<body onLoad="OnLoad()">
 <div id="menu"><button type='button' onClick='goToHome()'>Home!</option><button type='button' onClick='goToGame()'>Go To Game!</option><button type='button' onClick='goToAbout()'>Go To About!</option></div>
+<h3 id="roomTitle">Room title</h3>
+<p id="roomText">Room text</p>
 
-<h3><span class = "bold">Welcome to: </span><br/>The Randomest Dungeon!</h3>
-
-<p>The Randomest Dungeon is a randomly generated dungeon crawler in which your character is on a quest for treasure and pursuing the ultimate goal of eternal life. <br/> <br/> Due to the nature of being random, you may not experience the best dungeon in the first run. In fact, your dungeon may be quite empty of loot and only contain monsters. In order to get the full experience of what The Randomest Dungeon has to offer it is recommended that you play through 3-5 times.</p>
+<div id="roomChoices">Room choice buttons</div>
 
 
 
