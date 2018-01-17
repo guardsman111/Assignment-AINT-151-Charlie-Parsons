@@ -1,5 +1,6 @@
 function OnLoad()
 {
+	setStats();
 	Generator();
 	SelectRoom(0);
 }
@@ -27,6 +28,7 @@ function Generator()
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
+			roomArray[i].monsterCounter = number3;
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
 			roomArray[i].doors = Math.floor(Math.random() * (3 - 2 + 1)+ 2); // Random Door Number between 2 and 3
 			for(var j = 0; j <= roomArray[i].doors; j ++)
@@ -49,6 +51,7 @@ function Generator()
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
+			roomArray[i].monsterCounter = number3;
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
 			roomArray[i].doors = 2
 			for(var j = 1; j <= roomArray[i].doors; j ++)
@@ -78,6 +81,7 @@ function Generator()
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
+			roomArray[i].monsterCounter = number3;
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
 			roomArray[i].doors = Math.floor(Math.random() * (3 - 2 + 1)+ 2); // Random Door Number between 2 and 3
 			for(var j = 1; j <= roomArray[i].doors; j ++)
@@ -121,8 +125,10 @@ function Generator()
 			}
 			roomArray[i].monster2 = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random chance of Monster 2
 			roomArray[i].monsterType = monsterType2[number4]; // Random Monster part 2
+			roomArray[i].monsterCounter = number4 + 4;
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
 			roomArray[i].monster2Type = monsterType2[number6]; // Random Monster part 2
+			roomArray[i].monster2Counter = number6 + 4;
 			roomArray[i].monster2Text = "There is also a" + roomArray[i].monster2Type + monsterFiller[number5]; // Monster Filler
 			roomArray[i].doors = 2
 			for(var j = 1; j <= roomArray[i].doors; j ++)
@@ -197,8 +203,10 @@ function Generator()
 			roomArray[i].monster = 2 // Definite Monster
 			roomArray[i].monster2 = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random chance of Monster 2
 			roomArray[i].monsterType = monsterType2[number4]; // Random Monster part 2
+			roomArray[i].monsterCounter = number4 + 4;
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
 			roomArray[i].monster2Type = monsterType2[number6]; // Random Monster part 2
+			roomArray[i].monster2Counter = number6 + 4;
 			roomArray[i].monster2Text = "There is also a" + roomArray[i].monster2Type + monsterFiller[number5]; // Monster Filler
 			var randomlootvalue = Math.floor(Math.random() * lootpoor.length); // Random Number Generator
 			var randomloot = Math.floor(Math.random() * lootpoor.length); // Random Number Generator
@@ -254,27 +262,73 @@ function SelectRoom(roomIndex)
 	if (roomArray[index].monster == 2)
 	{
 		document.getElementById('roomText').innerHTML += "</br> </br>" + roomArray[index].monsterText;
+		console.log(roomArray[index].monsterCounter)
 		if (roomArray[index].monster2 == 2)
 		{
 			document.getElementById('roomText').innerHTML += "</br> </br>" + roomArray[index].monster2Text;
+			console.log(roomArray[index].monster2Counter)
+		}
+		else
+		{
+			for (var i = 0; i < PlayerStats[0].Weapon.length; i++)
+			{
+				var monster = roomArray[index].monsterCounter;
+				if (monster == 0 || monster == 1)
+				{
+					if (PlayerStats[0].Weapon[i].Id == 0)
+					{
+						document.getElementById('roomText').innerHTML += "</br> </br>You quickly draw your sword and kill the" + roomArray[i].monsterType + " in one smooth motion.";
+					}
+				}
+				if (monster == 2)
+				{
+					if (PlayerStats[0].Weapon[i].Id == 1)
+					{
+						document.getElementById('roomText').innerHTML += "</br> </br>Your axe cleaves through the orc in an instant, killing it on the spot.";
+					}
+				}
+				if (monster == 3)
+				{
+					if (PlayerStats[0].Weapon[i].Id == 1)
+					{
+						document.getElementById('roomText').innerHTML += "</br> </br>You severe several legs before landing a killing blow on the Giant Spider, but take no injuries in the fight.";
+					}
+				}
+			}
 		}
 	}
-	var imagesrc = "'Guide\Map Guide' + index + '.png'";
-	document.getElementById('guide').src = imagesrc;
-	previousRoom = index
 }
 
 function goToHome()
 {
-	window.location.href = ('Home.html')
+	window.location.href = ('Home.html');
 }
 
 function goToGame()
 {
-	window.location.href = ('game.html')
+	window.location.href = ('game.html');
+}
+
+function startGame()
+{
+	localStorage.setItem('playerHealth',PlayerStats[0].Health);
+	for (var i = 0; i < PlayerStats[0].Weapon.length; i++)
+	{
+		localStorage.setItem('playerWeapon' + i,PlayerStats[0].Weapon[i].Id);
+	}
+	window.location.href = ('index.html');
+}
+
+function setStats()
+{
+	PlayerStats[0].Health = localStorage.getItem('playerHealth');
+	PlayerStats[0].Weapon.push({Id:(localStorage.getItem('playerWeapon0'))});
+	PlayerStats[0].Weapon.push({Id:(localStorage.getItem('playerWeapon1'))});
+	PlayerStats[0].Weapon.push({Id:(localStorage.getItem('playerWeapon2'))});
+	PlayerStats[0].Weapon.push({Id:(localStorage.getItem('playerWeapon3'))});
 }
 
 function goToAbout()
 {
-	window.location.href = ('About.html')
+	window.location.href = ('About.html');
 }

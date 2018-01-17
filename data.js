@@ -17,6 +17,7 @@ var roomArray = [
 		text:'You are standing room 2',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -26,6 +27,7 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -35,6 +37,7 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -44,6 +47,7 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -53,6 +57,7 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -62,6 +67,7 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -71,8 +77,10 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		monster2:'',
 		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -82,8 +90,10 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		monster2:'',
 		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -93,8 +103,10 @@ var roomArray = [
 		text:'You are standing room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		monster2:'',
 		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -104,6 +116,7 @@ var roomArray = [
 		text:'End Room 1',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -113,6 +126,7 @@ var roomArray = [
 		text:'End Room 2',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -122,6 +136,7 @@ var roomArray = [
 		text:'End Room 3',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		doors:0,
 		choices:[
 		]
@@ -131,8 +146,10 @@ var roomArray = [
 		text:'Loot Room 1',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		monster2:'',
 		monster2Type:'',
+		monster2Counter:'',
 		loot:'',
 		doors:0,
 		choices:[
@@ -143,8 +160,10 @@ var roomArray = [
 		text:'Loot Room 2',
 		monster:'',
 		monsterType:'',
+		monsterCounter:'',
 		monster2:'',
 		monster2Type:'',
+		monster2Counter:'',
 		loot:'',
 		doors:0,
 		choices:[
@@ -180,8 +199,6 @@ var PlayerStats = [
 
 	}
 ]
-
-var previousRoom = 0;
 
 var roomLayouts = ["You are in a small brick room", "You are in a small tiled room", "You are in a small room with a tall ceiling", "You are in a medium sized room with brick walls", "You are in a medium tiled room",
 "You are in a large sized room with brick walls", "You are in a large sized room with tiled walls", "You are in a long but narrow room", "You are in a wide room"];
