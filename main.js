@@ -308,19 +308,20 @@ function SelectRoom(roomIndex)
 					{
 						document.getElementById('roomText').innerHTML += "</br> </br>Sensing the danger, your Possessed Dagger leaps from its sheath and stabs the" + roomArray[index].monsterType + " through the heart in a lightning fast movement. With a roaring shriek, the spirit possessing the dagger leaves its home, its task complete, and the dagger dissolves to dust.";
 						weapon= -1;
+						PlayerStats[0].Weapon[i].Id = -1;
 						roomArray[index].monster = 0;
 						PlayerStats[0].EnemiesBeaten += 1;
 					}
 				}
 				if (monster == 7)
 				{
-					console.log(weapon)
 					if (weapon == 3)
 					{
 						weapon = -1
 						console.log("dragon being a cunt. AGAIN.")
 						document.getElementById('roomText').innerHTML += "</br> </br>You immediately draw your spear and thrust it deep into the Dragon's chest. Your Spear's magical powers slice through the Dragon's scales with ease, but you are unable to retrieve the spear from its chest.";
 						roomArray[index].monster = 0;
+						PlayerStats[0].Weapon[i].Id = -1;
 						PlayerStats[0].EnemiesBeaten += 1;
 					}
 				}
@@ -330,6 +331,7 @@ function SelectRoom(roomIndex)
 					{
 						document.getElementById('roomText').innerHTML += "</br> </br>The Orc Warboss is easily felled by your Rune Axe, however the axe handle breaks during the blow.";
 						weapon = -1;
+						PlayerStats[0].Weapon[i].Id = -1;
 						roomArray[index].monster = 0;
 						PlayerStats[0].EnemiesBeaten += 1;
 					}
@@ -340,6 +342,7 @@ function SelectRoom(roomIndex)
 					{
 						document.getElementById('roomText').innerHTML += "</br> </br>The Owlbear takes a hefty axe blow to the face, and you can tell it is dead from the single hit. When you check your axe, however, you notice that the handle has splintered, and will no longer be of any use.";
 						weapon = -1;
+						PlayerStats[0].Weapon[i].Id = -1;
 						roomArray[index].monster = 0;
 						PlayerStats[0].EnemiesBeaten += 1;
 					}
@@ -350,7 +353,7 @@ function SelectRoom(roomIndex)
 				if (PlayerStats[0].Health > 1)
 				{
 					document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually you overcome your foe. You take a few heavy hits in the fight, and blood now runs from several new wounds.";
-					PlayerStats[0].Health -= 1
+					PlayerStats[0].Health -= 1;
 					roomArray[index].monster = 0;
 					PlayerStats[0].EnemiesBeaten += 1;
 				}
