@@ -7,7 +7,7 @@ var roomArray = [
 		monster:'0',
 		monsterType:'0',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:1,
 		choices:[
 			{
@@ -27,7 +27,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -43,7 +43,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -59,7 +59,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -75,7 +75,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -91,7 +91,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -107,7 +107,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -123,7 +123,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -139,7 +139,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -155,7 +155,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -171,7 +171,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -187,7 +187,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -203,7 +203,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -219,7 +219,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]
@@ -235,7 +235,7 @@ var roomArray = [
 		monster2Type:'',
 		monster2Counter:'',
 		loot:'',
-		lootstat:'',
+		lootfiller:'',
 		doors:0,
 		choices:[
 		]

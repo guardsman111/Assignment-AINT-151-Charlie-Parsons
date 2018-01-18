@@ -145,7 +145,7 @@ function Generator()
 			{
 				roomArray[i].loot = lootmidstat[randomloot];
 				roomArray[i].lootfiller = lootmid[randomloot];
-				roomArray[i].text +=  " In the corner there " + roomArray[i].lootfiller + ".";
+				roomArray[i].lootExists = 1;
 			}
 			roomArray[i].doors = 2
 			for(var j = 1; j <= roomArray[i].doors; j ++)
@@ -230,16 +230,19 @@ function Generator()
 			{
 				roomArray[i].loot = lootpoorstat[randomloot];
 				roomArray[i].lootfiller = lootpoor[randomloot];
+				roomArray[i].lootExists = 1;
 			}
 			if (randomlootvalue == 1)
 			{
 				roomArray[i].loot = lootmidstat[randomloot];
 				roomArray[i].lootfiller = lootmid[randomloot];
+				roomArray[i].lootExists = 1;
 			}
 			if (randomlootvalue == 2)
 			{
 				roomArray[i].loot = lootgoodstat[randomloot];
 				roomArray[i].lootfiller = lootgood[randomloot];
+				roomArray[i].lootExists = 1;
 			}
 			if (i == 13)
 			{
@@ -249,7 +252,7 @@ function Generator()
 			{
 				roomArray[i].choices.push({text: "Go back where you came from", index: 6});
 			}
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] +  roomFiller2[number8] + " In the corner there " + roomArray[i].lootfiller + ". The room seems to be a dead end."; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] +  roomFiller2[number8] + " The room seems to be a dead end."; // Random Filler Text
 		}
 
 
@@ -270,14 +273,23 @@ function SelectRoom(roomIndex)
 	var index;
 	index = roomIndex;
 	roomArray[index].visited = 1;
+	//Displays end stats room
 	if (index == 15)
 	{
 		roomArray[index].text = "Stats <br/><br/>Enemies Vanquished: "+ PlayerStats[0].EnemiesBeaten + "<br/><br/>" + PlayerStats[0].EnemiesBeatenText + "<br/><br/>Rooms Visited (Doors gone through): "+ PlayerStats[0].RoomsVisited +"<br/><br/>Loot Collected: " + PlayerStats[0].Loot;
 	}
 	PlayerStats[0].Loot += roomArray[index].loot;
+	roomArray[index].loot = '';
 	document.getElementById('roomTitle').innerText = roomArray[index].title;
 	document.getElementById('roomText').innerHTML = roomArray[index].text;
 	document.getElementById('roomChoices').innerHTML = '';
+	//Creates loot text if loot is in the room
+	if (roomArray[index].lootExists == 1)
+	{
+		document.getElementById('roomText').innerHTML += " In the corner there " + roomArray[index].lootfiller + ".";
+		roomArray[index].lootExists = 0;
+	}
+	//creates door choices
 	for (var i = 0; i < roomArray[index].choices.length; i++)
 	{
 		var nextIndex = roomArray[index].choices[i].index;
@@ -289,10 +301,12 @@ function SelectRoom(roomIndex)
 		var choiceAdd = "<button type='button' onClick='SelectRoom(" + nextIndex + ")'>" + nextText + "</button>";
 		document.getElementById('roomChoices').innerHTML += choiceAdd;
 	}
+	//Restarts game
 	if (index == 16)
 	{
 		window.location.href = ('game.html');
 	}
+	//Checks if room should have monster and applies text if it does
 	if (roomArray[index].monster == 2)
 	{
 		document.getElementById('roomText').innerHTML += "</br> </br>" + roomArray[index].monsterText;
