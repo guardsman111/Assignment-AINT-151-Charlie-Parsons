@@ -286,7 +286,7 @@ var roomFiller = [", with several regal banners hanging off the walls.", ", whic
 var roomFiller2 = ["", "", " You can smell rotten flesh in the air.", "You can hear a rumbling sound in the distance, but it soon fades.", " The door creaks closed behind you, making you jump a little.", " The air is musty, as though it hasn't moved in centuries.", " You shiver as a cold breeze washes over your spine."]
 
 var titleFiller = ["Brick room", "Tiled room", "Small room", "Room with brick walls", "Tiled room",
-"Large room with brick walls", "Large room with tiled walls", "Long corridor", "Wide room"];
+"Large room with brick walls", "Large room with tiled walls", "Long corridor", "Wide room", "Homely Room", "Room with a tall ceiling", "Old Armoury"];
 
 var monsterFiller = [" stood looking at you, slightly confused. It recovers in an instant and jumps towards you.", " wondering around the room, searching for something. It turns as the door closes and immediately notices your entry.", " scratching between its buttocks, unaware it is no longer alone. You run head first towards it, taking it completely off guard.", " sleeping in the corner. It jolts awake as the door closes with a loud bang, and gets up to attack.",
 " chained to the floor in the centre of the room. You will have to fight it to get past."]
