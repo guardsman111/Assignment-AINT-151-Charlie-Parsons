@@ -1,3 +1,4 @@
+// Array that contains all the information about individual rooms within the dungeon
 var roomArray = [
 	{
 		title:'Room 0',
@@ -257,6 +258,7 @@ var roomArray = [
 	}
 ]
 
+// Array that contains all of the player's equipment choices and health
 var PlayerStats = [
 	{
 		Name:'',
@@ -274,6 +276,7 @@ var PlayerStats = [
 	}
 ]
 
+// Various filler text arrays used when generating rooms and monsters
 var roomLayouts = ["You are in a small brick room", "You are in a small tiled room", "You are in a small room with a tall ceiling", "You are in a medium sized room with brick walls", "You are in a medium tiled room",
 "You are in a large sized room with brick walls", "You are in a large sized room with tiled walls", "You are in a long but narrow room", "You are in a wide room", "You are in a room that is strangely homely", "You enter a room with a tall ceiling", "You enter a room that looks like it may have been an ancient armoury"];
 
@@ -300,7 +303,5 @@ var lootmidstat = ["A finely crafted axe ", "100 gold pieces ", "A glittering Ge
 
 var lootgood = ["is an ancient sword instilled with ancient magical power", "is a chest full to the brim with 1000 gold pieces", "is a Diamond"]
 var lootgoodstat = ["An ancient sword instilled with ancient magical power ", "A chest full to the brim with 1000 gold pieces ", "A Diamond "]
-
-var wonLoot = 0 //Loot won at the end of the game.
 
 var ending = Math.floor(Math.random() * (2 - 0 + 1)+ 0); //aids in deciding which end room will complete the adventure

@@ -1,3 +1,4 @@
+// Runs through player equipment to check for a weapon that counters the monster
 function combat(index, monsterCounter, j)
 {
 		for (var i = 0; i < PlayerStats[0].Weapon.length; i++)
@@ -149,6 +150,7 @@ function combat(index, monsterCounter, j)
 		}
 }
 
+// Calculates whether or not the player has enough health to survive the encounter if they have no weapon to counter the monster
 function noCounter(index)
 {
 	if (roomArray[index].monster2 == 2)

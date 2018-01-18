@@ -5,6 +5,9 @@ function OnLoad()
 	SelectRoom(0);
 }
 
+// Generates the entire dungeon.
+// i == the room number
+// Runs through each room and builds the room according to parameters outlined in the design document.
 function Generator()
 {
 	for (var i = 0; i <= 17; i++)
@@ -259,6 +262,8 @@ function Generator()
 	}
 }
 
+// Displays each room's text on screen and then creates the buttons for the player to choose.
+// Also runs combat if the there are monsters in the room.
 function SelectRoom(roomIndex)
 {
 	PlayerStats[0].RoomsVisited = PlayerStats[0].RoomsVisited + 1;
@@ -316,6 +321,7 @@ function goToGame()
 	window.location.href = ('game.html');
 }
 
+// Transfers all of the player's equipment choices to the browsers memory
 function startGame()
 {
 	localStorage.setItem('playerHealth',PlayerStats[0].Health);
@@ -327,6 +333,7 @@ function startGame()
 	window.location.href = ('index.html');
 }
 
+// Transfers all of the player's equipment choices from the browser memory back to the PlayerStats array
 function setStats()
 {
 	PlayerStats[0].Health = localStorage.getItem('playerHealth');

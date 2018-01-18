@@ -1,3 +1,4 @@
+// Each function allows for a different piece of equipment to be taken, up to a limit of 4
 var kitTaken = 0;
 
 function plate()
