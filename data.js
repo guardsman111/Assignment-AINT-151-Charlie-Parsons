@@ -18,6 +18,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -28,6 +31,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -38,6 +44,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -48,6 +57,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -58,6 +70,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -68,6 +83,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -117,6 +135,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -127,6 +148,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -137,6 +161,9 @@ var roomArray = [
 		monster:'',
 		monsterType:'',
 		monsterCounter:'',
+		monster2:'',
+		monster2Type:'',
+		monster2Counter:'',
 		doors:0,
 		choices:[
 		]
@@ -193,6 +220,8 @@ var PlayerStats = [
 		Loot1:'',
 		Loot2:'',
 		EnemiesBeaten:0,
+		RoomsVisited:-1,
+		EnemiesBeatenText:'',
 		Health:1,
 		Potion:0,
 	},

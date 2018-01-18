@@ -15,6 +15,7 @@ function Generator()
 		var number4 = Math.floor(Math.random() * monsterType2.length); // Random Number Generator //Random monster 1
 		var number6 = Math.floor(Math.random() * monsterType2.length); // Random Number Generator //Random monster 2
 		var number5 = Math.floor(Math.random() * monsterFiller.length); // Random Number Generator
+		var number7 = Math.floor(Math.random() * monsterFiller.length); // Random Number Generator
 		if (i == 0) // generates start room
 		{
 			roomArray[i].title = "Start Room";
@@ -80,6 +81,10 @@ function Generator()
 			roomArray[i].title = titleFiller[number1];
 			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
+			if (roomArray[i].monster == 1)
+			{
+				roomArray[i].monster += 1 // Higher chance of monster because higher level room
+			}
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
 			roomArray[i].monsterCounter = number3;
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
@@ -129,7 +134,7 @@ function Generator()
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
 			roomArray[i].monster2Type = monsterType2[number6]; // Random Monster part 2
 			roomArray[i].monster2Counter = number6 + 4;
-			roomArray[i].monster2Text = "There is also a" + roomArray[i].monster2Type + monsterFiller[number5]; // Monster Filler
+			roomArray[i].monster2Text = "There is also a" + roomArray[i].monster2Type + monsterFiller[number7]; // Monster Filler
 			roomArray[i].doors = 2
 			for(var j = 1; j <= roomArray[i].doors; j ++)
 			{
@@ -207,7 +212,7 @@ function Generator()
 			roomArray[i].monsterText = "There is a" + roomArray[i].monsterType + monsterFiller[number5]; // Monster Filler
 			roomArray[i].monster2Type = monsterType2[number6]; // Random Monster part 2
 			roomArray[i].monster2Counter = number6 + 4;
-			roomArray[i].monster2Text = "There is also a" + roomArray[i].monster2Type + monsterFiller[number5]; // Monster Filler
+			roomArray[i].monster2Text = "There is also a" + roomArray[i].monster2Type + monsterFiller[number7]; // Monster Filler
 			var randomlootvalue = Math.floor(Math.random() * lootpoor.length); // Random Number Generator
 			var randomloot = Math.floor(Math.random() * lootpoor.length); // Random Number Generator
 			if (randomlootvalue == 0)
@@ -237,7 +242,7 @@ function Generator()
 		else if (i == 15) // creates end room
 		{
 				roomArray[i].title = "End Screen";
-				roomArray[i].text = "Stats <br/><br/>Enemies Vanquished: <br/><br/>Rooms Visited: <br/><br/>Loot Collected: ";
+				roomArray[i].text = "Stats <br/><br/>Enemies Vanquished: "+ PlayerStats[0].EnemiesBeaten + "<br/><br/>" + PlayerStats[0].EnemiesBeatenText + "<br/><br/>Rooms Visited (Doors gone through): "+ PlayerStats[0].RoomsVisited +"<br/><br/>Loot Collected: "+ PlayerStats[0].Loot1 + PlayerStats[0].Loot2;
 				roomArray[i].choices.push({text: "Start over", index: 16});
 		}
 	}
@@ -245,12 +250,16 @@ function Generator()
 
 function SelectRoom(roomIndex)
 {
+	PlayerStats[0].RoomsVisited = PlayerStats[0].RoomsVisited + 1;
 	var index;
 	index = roomIndex;
+	if (index == 15)
+	{
+		roomArray[index].text = "Stats <br/><br/>Enemies Vanquished: "+ PlayerStats[0].EnemiesBeaten + "<br/><br/>" + PlayerStats[0].EnemiesBeatenText + "<br/><br/>Rooms Visited (Doors gone through): "+ PlayerStats[0].RoomsVisited +"<br/><br/>Loot Collected: "+ PlayerStats[0].Loot1 + PlayerStats[0].Loot2;
+	}
 	document.getElementById('roomTitle').innerText = roomArray[index].title;
 	document.getElementById('roomText').innerHTML = roomArray[index].text;
 	document.getElementById('roomChoices').innerHTML = '';
-	console.log(PlayerStats[0].Health)
 	for (var i = 0; i < roomArray[index].choices.length; i++)
 	{
 		var choiceAdd = "<button type='button' onClick='SelectRoom(" + roomArray[index].choices[i].index + ")'>" + roomArray[index].choices[i].text + "</option>";
@@ -263,113 +272,17 @@ function SelectRoom(roomIndex)
 	if (roomArray[index].monster == 2)
 	{
 		document.getElementById('roomText').innerHTML += "</br> </br>" + roomArray[index].monsterText;
-		console.log(roomArray[index].monsterCounter)
 		if (roomArray[index].monster2 == 2)
 		{
 			document.getElementById('roomText').innerHTML += "</br> </br>" + roomArray[index].monster2Text;
-			console.log(roomArray[index].monster2Counter)
+			combat(index, roomArray[index].monster2Counter,1);
+			combat(index, roomArray[index].monsterCounter,0);
+			noCounter(index);
 		}
 		else
 		{
-			for (var i = 0; i < PlayerStats[0].Weapon.length; i++)
-			{
-				var monster = roomArray[index].monsterCounter;
-				var weapon = PlayerStats[0].Weapon[i].Id ;
-				if (monster == 0 || monster == 1)
-				{
-					if (weapon == 0)
-					{
-						document.getElementById('roomText').innerHTML += "</br> </br>You quickly draw your sword and kill the" + roomArray[index].monsterType + " in one smooth motion.";
-						roomArray[index].monster = 0;
-						PlayerStats[0].EnemiesBeaten += 1;
-					}
-				}
-				if (monster == 2)
-				{
-					if (weapon == 1)
-					{
-						document.getElementById('roomText').innerHTML += "</br> </br>Your axe cleaves through the orc in an instant, killing it on the spot.";
-						roomArray[index].monster = 0;
-						PlayerStats[0].EnemiesBeaten += 1;
-					}
-				}
-				if (monster == 3)
-				{
-					if (weapon == 1)
-					{
-						document.getElementById('roomText').innerHTML += "</br> </br>You severe several legs before landing a killing blow on the Giant Spider, but take no injuries in the fight.";
-						roomArray[index].monster = 0;
-						PlayerStats[0].EnemiesBeaten += 1;
-					}
-				}
-				if (monster == 5 || monster == 6)
-				{
-					if (weapon == 2)
-					{
-						document.getElementById('roomText').innerHTML += "</br> </br>Sensing the danger, your Possessed Dagger leaps from its sheath and stabs the" + roomArray[index].monsterType + " through the heart in a lightning fast movement. With a roaring shriek, the spirit possessing the dagger leaves its home, its task complete, and the dagger dissolves to dust.";
-						weapon= -1;
-						PlayerStats[0].Weapon[i].Id = -1;
-						roomArray[index].monster = 0;
-						PlayerStats[0].EnemiesBeaten += 1;
-					}
-				}
-				if (monster == 7)
-				{
-					if (weapon == 3)
-					{
-						weapon = -1
-						console.log("dragon being a cunt. AGAIN.")
-						document.getElementById('roomText').innerHTML += "</br> </br>You immediately draw your spear and thrust it deep into the Dragon's chest. Your Spear's magical powers slice through the Dragon's scales with ease, but you are unable to retrieve the spear from its chest.";
-						roomArray[index].monster = 0;
-						PlayerStats[0].Weapon[i].Id = -1;
-						PlayerStats[0].EnemiesBeaten += 1;
-					}
-				}
-				if (monster == 4)
-				{
-					if (weapon == 4)
-					{
-						document.getElementById('roomText').innerHTML += "</br> </br>The Orc Warboss is easily felled by your Rune Axe, however the axe handle breaks during the blow.";
-						weapon = -1;
-						PlayerStats[0].Weapon[i].Id = -1;
-						roomArray[index].monster = 0;
-						PlayerStats[0].EnemiesBeaten += 1;
-					}
-				}
-				if (monster == 8)
-				{
-					if (weapon == 4)
-					{
-						document.getElementById('roomText').innerHTML += "</br> </br>The Owlbear takes a hefty axe blow to the face, and you can tell it is dead from the single hit. When you check your axe, however, you notice that the handle has splintered, and will no longer be of any use.";
-						weapon = -1;
-						PlayerStats[0].Weapon[i].Id = -1;
-						roomArray[index].monster = 0;
-						PlayerStats[0].EnemiesBeaten += 1;
-					}
-				}
-			}
-			if (roomArray[index].monster == 2)
-			{
-				if (PlayerStats[0].Health > 1)
-				{
-					document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually you overcome your foe. You take a few heavy hits in the fight, and blood now runs from several new wounds.";
-					PlayerStats[0].Health -= 1;
-					roomArray[index].monster = 0;
-					PlayerStats[0].EnemiesBeaten += 1;
-				}
-				else if (PlayerStats[0].Potion == 1)
-				{
-					document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually your foe overcomes you. You collapse and blackness starts to envelope you. You manage to drink your potion of healing before you pass out, and wake up several hours later to an empty room.";
-					roomArray[index].monster = 0;
-					PlayerStats[0].Potion = 0;
-				}
-				else
-				{
-					document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually your foe overcomes you. You collapse and blackness envelopes you. Your adventure is over, better luck next time!";
-					var choiceAdd = "<button type='button' onClick='goToGame()'>Restart</option>";
-					document.getElementById('roomChoices').innerHTML = choiceAdd;
-				}
-			}
+			combat(index, roomArray[index].monsterCounter,0);
+			noCounter(index);
 		}
 	}
 }
