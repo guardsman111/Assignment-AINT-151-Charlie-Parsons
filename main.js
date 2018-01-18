@@ -326,10 +326,10 @@ function startGame()
 {
 	localStorage.setItem('playerHealth',PlayerStats[0].Health);
 	localStorage.setItem('playerPotion',PlayerStats[0].Potion);
-	for (var i = 0; i < PlayerStats[0].Weapon.length; i++)
-	{
-		localStorage.setItem('playerWeapon' + i,PlayerStats[0].Weapon[i].Id);
-	}
+	localStorage.setItem('playerWeapon0',PlayerStats[0].Weapon[0].Id);
+	localStorage.setItem('playerWeapon1',PlayerStats[0].Weapon[1].Id);
+	localStorage.setItem('playerWeapon2',PlayerStats[0].Weapon[2].Id);
+	localStorage.setItem('playerWeapon3',PlayerStats[0].Weapon[3].Id);
 	window.location.href = ('index.html');
 }
 
@@ -338,10 +338,10 @@ function setStats()
 {
 	PlayerStats[0].Health = localStorage.getItem('playerHealth');
 	PlayerStats[0].Potion = localStorage.getItem('playerPotion');
-	PlayerStats[0].Weapon.push({Id:(localStorage.getItem('playerWeapon0'))});
-	PlayerStats[0].Weapon.push({Id:(localStorage.getItem('playerWeapon1'))});
-	PlayerStats[0].Weapon.push({Id:(localStorage.getItem('playerWeapon2'))});
-	PlayerStats[0].Weapon.push({Id:(localStorage.getItem('playerWeapon3'))});
+	PlayerStats[0].Weapon[0].Id = localStorage.getItem('playerWeapon0');
+	PlayerStats[0].Weapon[1].Id = localStorage.getItem('playerWeapon1');
+	PlayerStats[0].Weapon[2].Id = localStorage.getItem('playerWeapon2');
+	PlayerStats[0].Weapon[3].Id = localStorage.getItem('playerWeapon3');
 }
 
 function goToAbout()

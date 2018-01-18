@@ -263,6 +263,18 @@ var PlayerStats = [
 	{
 		Name:'',
 		Weapon:[
+			{
+				Id:-1,
+			},
+			{
+				Id:-1,
+			},
+			{
+				Id:-1,
+			},
+			{
+				Id:-1,
+			}
 		],
 		Loot:'',
 		EnemiesBeaten:0,
