@@ -18,7 +18,14 @@ function combat(index, monsterCounter, j)
 						roomArray[index].monster2 = 0;
 					}
 					PlayerStats[0].EnemiesBeaten = PlayerStats[0].EnemiesBeaten + 1;
-					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + roomArray[index].monsterType + ", ";
+					if (monster == 0)
+					{
+						PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "A Goblin, ";
+					}
+					else
+					{
+						PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "A Guard, ";
+					}
 				}
 			}
 			if (monster == 2)
@@ -35,7 +42,7 @@ function combat(index, monsterCounter, j)
 						roomArray[index].monster2 = 0;
 					}
 					PlayerStats[0].EnemiesBeaten = PlayerStats[0].EnemiesBeaten + 1;
-					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "Orc, ";
+					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "An Orc, ";
 				}
 			}
 			if (monster == 3)
@@ -52,7 +59,7 @@ function combat(index, monsterCounter, j)
 						roomArray[index].monster2 = 0;
 					}
 					PlayerStats[0].EnemiesBeaten = PlayerStats[0].EnemiesBeaten + 1;
-					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "Giant Spider, ";
+					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "A Giant Spider, ";
 				}
 			}
 			if (monster == 5 || monster == 6)
@@ -71,7 +78,14 @@ function combat(index, monsterCounter, j)
 						roomArray[index].monster2 = 0;
 					}
 					PlayerStats[0].EnemiesBeaten = PlayerStats[0].EnemiesBeaten + 1;
-					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + roomArray[index].monsterType + ", ";
+					if (monster == 0)
+					{
+						PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "A Daemon, ";
+					}
+					else
+					{
+						PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "A Manticore, ";
+					}
 				}
 			}
 			if (monster == 7)
@@ -90,7 +104,7 @@ function combat(index, monsterCounter, j)
 					}
 					PlayerStats[0].Weapon[i].Id = -1;
 					PlayerStats[0].EnemiesBeaten = PlayerStats[0].EnemiesBeaten + 1;
-					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "Dragon, ";
+					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "A Dragon, ";
 					{break}
 				}
 			}
@@ -110,7 +124,7 @@ function combat(index, monsterCounter, j)
 						roomArray[index].monster2 = 0;
 					}
 					PlayerStats[0].EnemiesBeaten = PlayerStats[0].EnemiesBeaten + 1;
-					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "Orc Warboss, ";
+					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "An Orc Warboss, ";
 				}
 			}
 			if (monster == 8)
@@ -129,7 +143,7 @@ function combat(index, monsterCounter, j)
 						roomArray[index].monster2 = 0;
 					}
 					PlayerStats[0].EnemiesBeaten = PlayerStats[0].EnemiesBeaten + 1;
-					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "Owlbear, ";
+					PlayerStats[0].EnemiesBeatenText = PlayerStats[0].EnemiesBeatenText + "An Owlbear, ";
 				}
 			}
 		}
@@ -141,7 +155,7 @@ function noCounter(index)
 	{
 		if (PlayerStats[0].Health > 2)
 		{
-			document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually you overcome your foes. You take a few heavy hits in the fight, and blood now runs from several new wounds.";
+			document.getElementById('roomText').innerHTML += "</br> </br>It's a tough fight, but eventually you overcome your foes. You take a few heavy hits in the fight, and blood now runs from several new wounds.";
 			PlayerStats[0].Health -= 2;
 			roomArray[index].monster = 0;
 			roomArray[index].monster2 = 0;
@@ -151,14 +165,14 @@ function noCounter(index)
 		}
 		else if (PlayerStats[0].Potion == 1)
 		{
-			document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually your foes overcomes you. You collapse and blackness starts to envelope you. You manage to drink your potion of healing before you pass out, and wake up several hours later to an empty room.";
+			document.getElementById('roomText').innerHTML += "</br> </br>It's a tough fight, but eventually your foes overcome you. You collapse and blackness starts to envelope you. You manage to drink your potion of healing before you pass out, and wake up several hours later to an empty room.";
 			roomArray[index].monster = 0;
 			roomArray[index].monster2 = 0;
 			PlayerStats[0].Potion = 0;
 		}
 		else
 		{
-			document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually your foes overcomes you. You collapse and blackness envelopes you. Your adventure is over, better luck next time!";
+			document.getElementById('roomText').innerHTML += "</br> </br>It's a tough fight, but eventually your foes overcome you. You collapse and blackness envelopes you. Your adventure is over, better luck next time!";
 			var choiceAdd = "<button type='button' onClick='goToGame()'>Restart</option>";
 			document.getElementById('roomChoices').innerHTML = choiceAdd;
 			roomArray[index].monster = 0;
@@ -169,7 +183,7 @@ function noCounter(index)
 	{
 		if (PlayerStats[0].Health > 1)
 		{
-			document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually you overcome your foe. You take a few heavy hits in the fight, and blood now runs from several new wounds.";
+			document.getElementById('roomText').innerHTML += "</br> </br>It's a tough fight, but eventually you overcome your foe. You take a few heavy hits in the fight, and blood now runs from several new wounds.";
 			PlayerStats[0].Health -= 1;
 			roomArray[index].monster = 0;
 			PlayerStats[0].EnemiesBeaten += 1;
@@ -177,13 +191,13 @@ function noCounter(index)
 		}
 		else if (PlayerStats[0].Potion == 1)
 		{
-			document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually your foe overcomes you. You collapse and blackness starts to envelope you. You manage to drink your potion of healing before you pass out, and wake up several hours later to an empty room.";
+			document.getElementById('roomText').innerHTML += "</br> </br>It's a tough fight, but eventually your foe overcomes you. You collapse and blackness starts to envelope you. You manage to drink your potion of healing before you pass out, and wake up several hours later to an empty room.";
 			roomArray[index].monster = 0;
 			PlayerStats[0].Potion = 0;
 		}
 		else
 		{
-			document.getElementById('roomText').innerHTML += "</br> </br>Its a tough fight, but eventually your foe overcomes you. You collapse and blackness envelopes you. Your adventure is over, better luck next time!";
+			document.getElementById('roomText').innerHTML += "</br> </br>It's a tough fight, but eventually your foe overcomes you. You collapse and blackness envelopes you. Your adventure is over, better luck next time!";
 			var choiceAdd = "<button type='button' onClick='goToGame()'>Restart</option>";
 			document.getElementById('roomChoices').innerHTML = choiceAdd;
 			roomArray[index].monster = 0;

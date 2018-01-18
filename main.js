@@ -11,11 +11,13 @@ function Generator()
 	{
 		var number1 = Math.floor(Math.random() * roomLayouts.length); // Random Number Generator
 		var number2 = Math.floor(Math.random() * roomFiller.length); // Random Number Generator
+		var number8 = Math.floor(Math.random() * roomFiller2.length); // Random Number Generator
 		var number3 = Math.floor(Math.random() * monsterType1.length); // Random Number Generator
 		var number4 = Math.floor(Math.random() * monsterType2.length); // Random Number Generator //Random monster 1
 		var number6 = Math.floor(Math.random() * monsterType2.length); // Random Number Generator //Random monster 2
 		var number5 = Math.floor(Math.random() * monsterFiller.length); // Random Number Generator
 		var number7 = Math.floor(Math.random() * monsterFiller.length); // Random Number Generator
+		var number9 = Math.floor(Math.random() * 2); // Random Number Generator
 		if (i == 0) // generates start room
 		{
 			roomArray[i].title = "Start Room";
@@ -26,7 +28,7 @@ function Generator()
 		else if (i == 1) // generates room 1
 		{
 			roomArray[i].title = titleFiller[number1];
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + roomFiller2[number8]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
 			roomArray[i].monsterCounter = number3;
@@ -49,7 +51,7 @@ function Generator()
 		else if (i <= 4) // generates room 2-4
 		{
 			roomArray[i].title = titleFiller[number1];
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + roomFiller2[number8]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			roomArray[i].monsterType = monsterType1[number3]; // Random Monster part 2
 			roomArray[i].monsterCounter = number3;
@@ -79,7 +81,7 @@ function Generator()
 		else if (i <= 6) // generates room 5-6
 		{
 			roomArray[i].title = titleFiller[number1];
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + roomFiller2[number8]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random Monster
 			if (roomArray[i].monster == 1)
 			{
@@ -122,7 +124,7 @@ function Generator()
 		else if (i <= 9) // generates room 7-9
 		{
 			roomArray[i].title = titleFiller[number1];
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + roomFiller2[number8]; // Random Filler Text
 			roomArray[i].monster = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random chance of Monster
 			if (roomArray[i].monster == 1)
 			{
@@ -135,6 +137,13 @@ function Generator()
 			roomArray[i].monster2Type = monsterType2[number6]; // Random Monster part 2
 			roomArray[i].monster2Counter = number6 + 4;
 			roomArray[i].monster2Text = "There is also a" + roomArray[i].monster2Type + monsterFiller[number7]; // Monster Filler
+			var randomloot = Math.floor(Math.random() * lootpoor.length); // Random Number Generator
+			if (number9 > 0)
+			{
+				roomArray[i].loot = lootmidstat[randomloot];
+				roomArray[i].lootfiller = lootmid[randomloot];
+				roomArray[i].text +=  " In the corner there " + roomArray[i].lootfiller + ".";
+			}
 			roomArray[i].doors = 2
 			for(var j = 1; j <= roomArray[i].doors; j ++)
 			{
@@ -164,7 +173,7 @@ function Generator()
 		else if (i <= 12) // generates room 10-12
 		{
 			roomArray[i].title = titleFiller[number1];
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + " The room seems to be a dead end."; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + roomFiller2[number8] + " The room seems to be a dead end."; // Random Filler Text
 			roomArray[i].choices.push({text: "Go back where you came from", index: i - 3});
 			if (ending == 0)
 			{
@@ -194,7 +203,7 @@ function Generator()
 					else
 					{
 						roomArray[i - 1].text = "You can see the Goblet of Life stood on an Altar before you. Behind it stands a statue to the god Salomon. You pick up the goblet and take a sip, and you feel power rushing through your veins. You lift your sword and pack with renewed ease. Somehow, your way out will not be as hard as the way in."
-						roomArray[i].choices.push({text: "Continue on to your destiny", index: 15});
+						roomArray[i - 1].choices.push({text: "Continue on to your destiny", index: 15});
 					}
 				}
 			}
@@ -204,7 +213,6 @@ function Generator()
 		else if (i <= 14) // generates loot rooms 1-2
 		{
 			roomArray[i].title = titleFiller[number1];
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2]; // Random Filler Text
 			roomArray[i].monster = 2 // Definite Monster
 			roomArray[i].monster2 = Math.floor(Math.random() * (2 - 0 + 1)+ 0); // Random chance of Monster 2
 			roomArray[i].monsterType = monsterType2[number4]; // Random Monster part 2
@@ -217,15 +225,18 @@ function Generator()
 			var randomloot = Math.floor(Math.random() * lootpoor.length); // Random Number Generator
 			if (randomlootvalue == 0)
 			{
-				roomArray[i].loot = lootpoor[randomloot];
+				roomArray[i].loot = lootpoorstat[randomloot];
+				roomArray[i].lootfiller = lootpoor[randomloot];
 			}
 			if (randomlootvalue == 1)
 			{
-				roomArray[i].loot = lootmid[randomloot];
+				roomArray[i].loot = lootmidstat[randomloot];
+				roomArray[i].lootfiller = lootmid[randomloot];
 			}
 			if (randomlootvalue == 2)
 			{
-				roomArray[i].loot = lootgood[randomloot];
+				roomArray[i].loot = lootgoodstat[randomloot];
+				roomArray[i].lootfiller = lootgood[randomloot];
 			}
 			if (i == 13)
 			{
@@ -235,14 +246,14 @@ function Generator()
 			{
 				roomArray[i].choices.push({text: "Go back where you came from", index: 6});
 			}
-			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] + " In the corner there " + roomArray[i].loot + "."; // Random Filler Text
+			roomArray[i].text = roomLayouts[number1] + roomFiller[number2] +  roomFiller2[number8] + " In the corner there " + roomArray[i].lootfiller + ". The room seems to be a dead end."; // Random Filler Text
 		}
 
 
 		else if (i == 15) // creates end room
 		{
 				roomArray[i].title = "End Screen";
-				roomArray[i].text = "Stats <br/><br/>Enemies Vanquished: "+ PlayerStats[0].EnemiesBeaten + "<br/><br/>" + PlayerStats[0].EnemiesBeatenText + "<br/><br/>Rooms Visited (Doors gone through): "+ PlayerStats[0].RoomsVisited +"<br/><br/>Loot Collected: "+ PlayerStats[0].Loot1 + PlayerStats[0].Loot2;
+				roomArray[i].text = "Stats <br/><br/>Enemies Vanquished: "+ PlayerStats[0].EnemiesBeaten + "<br/><br/>" + PlayerStats[0].EnemiesBeatenText + "<br/><br/>Rooms Visited (Doors gone through): "+ PlayerStats[0].RoomsVisited +"<br/><br/>Loot Collected: ";
 				roomArray[i].choices.push({text: "Start over", index: 16});
 		}
 	}
@@ -253,16 +264,24 @@ function SelectRoom(roomIndex)
 	PlayerStats[0].RoomsVisited = PlayerStats[0].RoomsVisited + 1;
 	var index;
 	index = roomIndex;
+	roomArray[index].visited = 1;
 	if (index == 15)
 	{
-		roomArray[index].text = "Stats <br/><br/>Enemies Vanquished: "+ PlayerStats[0].EnemiesBeaten + "<br/><br/>" + PlayerStats[0].EnemiesBeatenText + "<br/><br/>Rooms Visited (Doors gone through): "+ PlayerStats[0].RoomsVisited +"<br/><br/>Loot Collected: "+ PlayerStats[0].Loot1 + PlayerStats[0].Loot2;
+		roomArray[index].text = "Stats <br/><br/>Enemies Vanquished: "+ PlayerStats[0].EnemiesBeaten + "<br/><br/>" + PlayerStats[0].EnemiesBeatenText + "<br/><br/>Rooms Visited (Doors gone through): "+ PlayerStats[0].RoomsVisited +"<br/><br/>Loot Collected: " + PlayerStats[0].Loot;
 	}
+	PlayerStats[0].Loot += roomArray[index].loot;
 	document.getElementById('roomTitle').innerText = roomArray[index].title;
 	document.getElementById('roomText').innerHTML = roomArray[index].text;
 	document.getElementById('roomChoices').innerHTML = '';
 	for (var i = 0; i < roomArray[index].choices.length; i++)
 	{
-		var choiceAdd = "<button type='button' onClick='SelectRoom(" + roomArray[index].choices[i].index + ")'>" + roomArray[index].choices[i].text + "</option>";
+		var nextIndex = roomArray[index].choices[i].index;
+		var nextText = roomArray[index].choices[i].text;
+		if (roomArray[nextIndex].visited == 1 && i != 0)
+		{
+			nextText += " (visited)";
+		}
+		var choiceAdd = "<button type='button' onClick='SelectRoom(" + nextIndex + ")'>" + nextText + "</button>";
 		document.getElementById('roomChoices').innerHTML += choiceAdd;
 	}
 	if (index == 16)
